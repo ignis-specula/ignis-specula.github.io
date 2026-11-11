@@ -20,13 +20,22 @@ a{color:#B4501A}a:hover{color:#7E3610}
 .hero-media{object-position:38% 70%}
 @media (max-width:600px){.hero-media{object-position:50% 50%}}
 @media (prefers-reduced-motion:reduce){.hero-video{display:none}}
+@media (max-width:600px){
+.topbar{display:grid !important;grid-template-columns:1fr auto;align-items:center;row-gap:10px !important;padding:16px 20px !important}
+.topnav{display:contents !important}
+.topnav-links{grid-column:1/-1;grid-row:2;gap:22px !important}
+.nav-contact{grid-column:2;grid-row:1}
+.hero-box{height:clamp(17rem,46vh,24rem) !important}
+.hero-fade{height:7rem !important}
+.hero-caption{left:20px !important;right:20px !important;bottom:8px !important;font-size:0.7rem !important;line-height:1.4}
+}
 </style>
 </head>
 <body>
 <div style="background: #FBFAF8; color: #23272D; font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 1.0625rem; line-height: 1.65">
 
 <header style="background: #11151B; color: #EEEAE2">
-<div style="position: relative; height: 34rem; overflow: hidden">
+<div class="hero-box" style="position: relative; height: 34rem; overflow: hidden">
 <picture>
 <source media="(max-width: 600px)" srcset="assets/hero-mobile.jpg">
 <img src="assets/hero-poster.jpg" class="hero-media" alt="MTG-FCI true-colour images of the Iberian Peninsula on 15 August 2025, 11:00 to 17:40 UTC, showing smoke plumes spreading from the fires of north-west Spain and Portugal, with detected fire perimeters coloured by fire intensity" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover">
@@ -37,17 +46,19 @@ a{color:#B4501A}a:hover{color:#7E3610}
 <source src="assets/hero.mp4" type="video/mp4">
 </video>
 <div style="position: absolute; top: 0; left: 0; right: 0; height: 12rem; background: linear-gradient(180deg, #11151BEB 0%, #11151B00 100%)"></div>
-<div style="position: absolute; left: 0; right: 0; bottom: 0; height: 12rem; background: linear-gradient(180deg, #11151B00 0%, #11151B 100%)"></div>
-<div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 22px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div class="hero-fade" style="position: absolute; left: 0; right: 0; bottom: 0; height: 12rem; background: linear-gradient(180deg, #11151B00 0%, #11151B 100%)"></div>
+<div class="topbar" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 22px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <span style="font-weight: 700; letter-spacing: 0.08em; font-size: 1.05rem; color: #FFFFFF">IGNIS SPECULA</span>
-<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; align-items: center; gap: 26px; font-size: 0.95rem">
+<nav aria-label="Sections" class="topnav" style="display: flex; flex-wrap: wrap; align-items: center; gap: 26px; font-size: 0.95rem">
+<span class="topnav-links" style="display: flex; flex-wrap: wrap; align-items: center; gap: 26px">
 <a href="#services" style="color: #EEEAE2; text-decoration: none">Services</a>
 <a href="#users" style="color: #EEEAE2; text-decoration: none">Applications</a>
 <a href="#partnership" style="color: #EEEAE2; text-decoration: none">Partnership</a>
-<a href="#contact" style="color: #FFFFFF; text-decoration: none; font-weight: 600; border: 1px solid #EEEAE2; padding: 9px 18px; border-radius: 3px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Contact</a>
+</span>
+<a href="#contact" class="nav-contact" style="color: #FFFFFF; text-decoration: none; font-weight: 600; border: 1px solid #EEEAE2; padding: 9px 18px; border-radius: 3px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Contact</a>
 </nav>
 </div>
-<p style="position: absolute; left: 32px; right: 32px; bottom: 14px; margin: 0; text-align: right; font-size: 0.78rem; color: #9AA3AD">MTG-FCI true colour, 15 Aug 2025, 11:00–17:40 UTC every 10 min, with detected fire perimeters (white to red: fire intensity, black: no activity)</p>
+<p class="hero-caption" style="position: absolute; left: 32px; right: 32px; bottom: 14px; margin: 0; text-align: right; font-size: 0.78rem; color: #9AA3AD">MTG-FCI true colour, 15 Aug 2025, 11:00–17:40 UTC every 10 min, with detected fire perimeters (white to red: fire intensity, black: no activity)</p>
 </div>
 <div style="max-width: 1180px; margin: 0 auto; padding: 8px 32px 80px">
 <h1 class="hero-title" style="margin: 0 0 22px; max-width: 900px; font-family: 'IBM Plex Serif', Georgia, serif; font-weight: 500; font-size: 3.2rem; line-height: 1.1; color: #F4F1EA">From historical wildfire exposure to near-real-time threat monitoring</h1>
