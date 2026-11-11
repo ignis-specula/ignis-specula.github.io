@@ -29,6 +29,8 @@ a{color:#B4501A}a:hover{color:#7E3610}
 .hero-fade{height:7rem !important}
 .hero-caption{left:20px !important;right:20px !important;bottom:8px !important;font-size:0.7rem !important;line-height:1.4}
 }
+dialog::backdrop{background:rgba(17,21,27,0.75)}
+dialog[open]{overflow:auto}
 </style>
 </head>
 <body>
@@ -96,6 +98,12 @@ a{color:#B4501A}a:hover{color:#7E3610}
 <li>Prioritisation of mitigation measures</li>
 <li>Risk or insurance assessments</li>
 </ul>
+<figure style="margin: 10px 0 0">
+<button type="button" class="example-open" data-dialog="sa-example" aria-haspopup="dialog" style="display: block; width: 100%; max-width: 360px; padding: 0; border: 1px solid #D9D4CA; border-radius: 3px; background: #FFFFFF; cursor: zoom-in">
+<img src="assets/SA-FB-example-thumb.jpg" width="800" height="458" alt="Example: wildfire exposure map and annual exceedance charts for South Africa, 2003–2025" style="display: block; width: 100%; height: auto">
+</button>
+<figcaption style="margin-top: 8px; font-size: 0.9rem; color: #5A616B">Example: South Africa, 2003–2025. Click to enlarge.</figcaption>
+</figure>
 </div>
 
 <div style="border-top: 2px solid #B4501A; padding-top: 22px; display: flex; flex-direction: column; gap: 14px">
@@ -160,10 +168,32 @@ a{color:#B4501A}a:hover{color:#7E3610}
 </footer>
 
 </div>
+<dialog id="sa-example" aria-labelledby="sa-example-title" style="width: min(1100px, 94vw); max-height: 92vh; padding: 0; border: none; border-radius: 4px; background: #FBFAF8; color: #23272D; font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 1.0625rem; line-height: 1.65">
+<div style="padding: 20px 24px 28px">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 14px">
+<h3 id="sa-example-title" style="margin: 0; font-size: 1.2rem; font-weight: 600; line-height: 1.3; color: #15181C">Example: wildfire exposure across South Africa, 2003–2025</h3>
+<button type="button" class="dialog-close" aria-label="Close" style="flex: none; min-width: 44px; min-height: 44px; border: 1px solid #23272D; border-radius: 3px; background: transparent; font-size: 1.3rem; line-height: 1; cursor: pointer; color: #23272D">&times;</button>
+</div>
+<a href="assets/SA-FB-example.jpg" target="_blank" rel="noopener" style="display: block"><img src="assets/SA-FB-example.jpg" width="2540" height="1456" alt="Map of South Africa coloured by how often fire returns and how intensely it burns in each cell, with two charts of the number of fires per year exceeding a given fire size and a given spread rate" loading="lazy" style="display: block; width: 100%; height: auto"></a>
+<div style="max-width: 760px; margin-top: 20px">
+<p style="margin: 0 0 14px">From 23 years of satellite fire observations, we reconstructed about 135,000 fire events across South Africa. The map shows, for each 5 km² cell, how often fire returns and how intensely it burns. Dark blue marks areas that burn often and intensely, such as the eastern grasslands of Mpumalanga and KwaZulu-Natal. Pink marks areas that burn rarely but intensely, such as the fynbos mountains of the Western Cape: rare does not mean safe. Overall, 38&nbsp;% of the country was hit at least once.</p>
+<p style="margin: 0 0 14px">The two charts turn this history into annual exceedance figures that risk and asset managers can use directly. Each year about 1,000 fires exceed 1,000&nbsp;ha, about one exceeds 25,000&nbsp;ha, and around ten have a p80 spread rate above 0.4&nbsp;km/h. Applied to a site, a power line or a whole portfolio, the same method gives local fire frequency, intensity and likely spread rates to support siting, mitigation and insurance decisions.</p>
+<p style="margin: 0; font-size: 0.9rem; color: #5A616B">Feasibility demonstration based on MODIS satellite data; not yet validated against mapped burned areas. <a href="assets/SA-FB-example.jpg" target="_blank" rel="noopener">Open the full-size image</a>.</p>
+</div>
+</div>
+</dialog>
+
 <script>
 document.querySelectorAll('a.em').forEach(function(a){
   var e=a.dataset.u+'\u0040'+a.dataset.d+'.'+a.dataset.t;
   a.href='mai'+'lto:'+e; a.textContent=e;
+});
+document.querySelectorAll('.example-open').forEach(function(b){
+  var d=document.getElementById(b.dataset.dialog);
+  if(!d||!d.showModal)return;
+  b.addEventListener('click',function(){d.showModal();});
+  d.querySelector('.dialog-close').addEventListener('click',function(){d.close();});
+  d.addEventListener('click',function(e){if(e.target===d)d.close();});
 });
 </script>
 </body>
