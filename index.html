@@ -17,6 +17,9 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#FBFAF8}
 a{color:#B4501A}a:hover{color:#7E3610}
 @media (max-width:600px){.hero-title{font-size:2.2rem !important}}
+.hero-media{object-position:38% 70%}
+@media (max-width:600px){.hero-media{object-position:50% 50%}}
+@media (prefers-reduced-motion:reduce){.hero-video{display:none}}
 </style>
 </head>
 <body>
@@ -24,8 +27,16 @@ a{color:#B4501A}a:hover{color:#7E3610}
 
 <header style="background: #11151B; color: #EEEAE2">
 <div style="position: relative; height: 34rem; overflow: hidden">
-<img src="assets/hero.jpg" alt="MTG-FCI true-colour image of the Iberian Peninsula on 15 August 2025, 17:40 UTC, showing smoke plumes from the fires of north-west Spain and Portugal with their detected fire perimeters" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: 38% 60%">
-<div style="position: absolute; top: 0; left: 0; right: 0; height: 9rem; background: linear-gradient(180deg, #11151BCC 0%, #11151B00 100%)"></div>
+<picture>
+<source media="(max-width: 600px)" srcset="assets/hero-mobile.jpg">
+<img src="assets/hero-poster.jpg" class="hero-media" alt="MTG-FCI true-colour images of the Iberian Peninsula on 15 August 2025, 11:00 to 17:40 UTC, showing smoke plumes spreading from the fires of north-west Spain and Portugal, with detected fire perimeters coloured by fire intensity" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover">
+</picture>
+<video class="hero-media hero-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover">
+<source media="(max-width: 600px)" src="assets/hero-mobile.mp4" type="video/mp4">
+<source src="assets/hero.webm" type="video/webm">
+<source src="assets/hero.mp4" type="video/mp4">
+</video>
+<div style="position: absolute; top: 0; left: 0; right: 0; height: 12rem; background: linear-gradient(180deg, #11151BEB 0%, #11151B00 100%)"></div>
 <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 12rem; background: linear-gradient(180deg, #11151B00 0%, #11151B 100%)"></div>
 <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 22px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <span style="font-weight: 700; letter-spacing: 0.08em; font-size: 1.05rem; color: #FFFFFF">IGNIS SPECULA</span>
@@ -36,7 +47,7 @@ a{color:#B4501A}a:hover{color:#7E3610}
 <a href="#contact" style="color: #FFFFFF; text-decoration: none; font-weight: 600; border: 1px solid #EEEAE2; padding: 9px 18px; border-radius: 3px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Contact</a>
 </nav>
 </div>
-<p style="position: absolute; right: 32px; bottom: 14px; margin: 0; font-size: 0.78rem; color: #9AA3AD">MTG-FCI true colour, 15 Aug 2025 17:40 UTC, with detected fire perimeters</p>
+<p style="position: absolute; left: 32px; right: 32px; bottom: 14px; margin: 0; text-align: right; font-size: 0.78rem; color: #9AA3AD">MTG-FCI true colour, 15 Aug 2025, 11:00–17:40 UTC every 10 min, with detected fire perimeters (white to red: fire intensity, black: no activity)</p>
 </div>
 <div style="max-width: 1180px; margin: 0 auto; padding: 8px 32px 80px">
 <h1 class="hero-title" style="margin: 0 0 22px; max-width: 900px; font-family: 'IBM Plex Serif', Georgia, serif; font-weight: 500; font-size: 3.2rem; line-height: 1.1; color: #F4F1EA">From historical wildfire exposure to near-real-time threat monitoring</h1>
