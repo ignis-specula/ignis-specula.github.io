@@ -1,4 +1,4 @@
-# ignis-specula.eu
+# ignis-specula.com
 
 Static one-page site, no build step, no external requests.
 
@@ -9,6 +9,7 @@ assets/hero.jpg   MTG-FCI image (credit: contains modified EUMETSAT Meteosat dat
 css/fonts.css     @font-face rules for IBM Plex (self-hosted)
 fonts/            IBM Plex .woff2 files + OFL.txt (SIL OFL 1.1)
 .nojekyll         serve files as-is
+CNAME             custom domain for GitHub Pages
 ```
 
 ## Fonts
@@ -21,11 +22,11 @@ IBMPlexSans-SemiBold.woff2, IBMPlexSans-Bold.woff2,
 IBMPlexSerif-Medium.woff2, IBMPlexSerif-SemiBold.woff2
 
 ## Publish on GitHub Pages
-1. Create a repository (e.g. `ignis-specula.eu`) and push these files to the `main` branch.
-2. Settings > Pages > Source: "Deploy from a branch", branch `main`, folder `/ (root)`.
-   The site is served at https://ignis-specula.github.io/ for now.
-3. When the domain is ready: add a `CNAME` file containing `ignis-specula.eu`, set Settings > Pages > Custom domain, and replace `https://ignis-specula.github.io/` with `https://ignis-specula.eu/` in the canonical / og: tags of index.html and privacy.html.
-4. At your domain registrar, add DNS records:
-   - A records for `ignis-specula.eu`: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-   - CNAME record for `www`: `<your-github-username>.github.io`
-5. Once the certificate is issued, tick "Enforce HTTPS".
+Repository `ignis-specula/ignis-specula.github.io`, served from branch `main`, folder `/ (root)`.
+Custom domain: https://ignis-specula.com/ (`CNAME` file; canonical / og: tags in index.html and privacy.html use it).
+
+1. Settings > Pages > Custom domain: `ignis-specula.com`.
+2. At the domain registrar, add DNS records:
+   - A records for `ignis-specula.com`: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
+   - CNAME record for `www`: `ignis-specula.github.io`
+3. Once the certificate is issued, tick "Enforce HTTPS".
